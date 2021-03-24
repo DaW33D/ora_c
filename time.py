@@ -68,7 +68,7 @@ class Time:
     def __init__(self):
         n = numbers.Numbers()
         self.fullkeret()
-        n.number9(-25, -100)
+        n.number9(-25, -100, 100)
         self.hour1()
         self.screen.mainloop()
 
