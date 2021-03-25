@@ -12,7 +12,6 @@ class Time:
     turtle.speed(0)
     screen = Screen()
     screen.setup(width=600, height=400)
-    screen.bgcolor("black")
 
     # other turtles
 
