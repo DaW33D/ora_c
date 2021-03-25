@@ -10,7 +10,7 @@ class digit:
     screen.bgcolor("black")
 
     def egyseg(self):
-        self.turtle.fillcolor("red")
+        self.turtle.fillcolor("#1aff1a")
         self.turtle.begin_fill()
         self.turtle.right(45)
         self.turtle.backward(20)
@@ -49,10 +49,42 @@ class digit:
         self.egyseg()
         self.turtle.forward(108)
         self.egyseg()
+        self.turtle.right(90)
+        self.turtle.forward(150)
+
+    def num1(self):
+        self.turtle.left(90)
+        self.egyseg()
+        self.turtle.forward(108)
+        self.egyseg()
+        self.turtle.forward(250)
+
+    def num2(self):
+        self.turtle.right(90)
+        self.turtle.forward(108)
+        self.egyseg()
+        self.turtle.right(90)
+        self.turtle.forward(108)
+        self.egyseg()
+        self.turtle.right(90)
+        self.turtle.forward(108)
+        self.egyseg()
+        self.turtle.left(90)
+        self.turtle.forward(108)
+        self.egyseg()
+        self.turtle.left(90)
+        self.turtle.forward(108)
+        self.egyseg()
+
+
+
+
+
 
     def __init__(self):
         self.num8()
-
+        self.num1()
+        self.num2()
 
         self.screen.mainloop()
 

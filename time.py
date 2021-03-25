@@ -12,6 +12,7 @@ class Time:
     turtle.speed(0)
     screen = Screen()
     screen.setup(width=600, height=400)
+    screen.bgcolor("black")
 
     # other turtles
 
@@ -68,8 +69,16 @@ class Time:
     def __init__(self):
         n = numbers.Numbers()
         self.fullkeret()
-        n.number9(-25, -100, 100)
         self.hour1()
+        n.number2(-25, -100, 100)
+        self.screen.mainloop()
+
+
+    def __init__(self):
+        n = numbers.Numbers()
+        self.fullkeret()
+        self.hour2()
+        n.number1(-25, -100, 100)
         self.screen.mainloop()
 
 
