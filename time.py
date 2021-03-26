@@ -9,31 +9,55 @@ class Time:
     # screen and turtle
     turtle = Turtle()
     turtle.hideturtle()
-    turtle.speed(0)
+    turtle.speed(10)
     screen = Screen()
     screen.setup(width=600, height=400)
 
     # other turtles
 
-    t1 = turtle
+    t1 = Turtle()
     t1.hideturtle()
     t1.speed(0)
     t1.fillcolor('white')
 
-    t2 = turtle
+    t2 = Turtle()
     t2.hideturtle()
     t2.speed(0)
     t2.fillcolor('white')
 
-    t3 = turtle
+    t3 = Turtle()
     t3.hideturtle()
     t3.speed(0)
     t3.fillcolor('white')
 
-    t4 = turtle
+    t4 = Turtle()
     t4.hideturtle()
     t4.speed(0)
     t4.fillcolor('white')
+
+    #now
+
+    def h1(self):
+        now = datetime.now()
+        h1 = str(now.strftime("%H")[0:1])
+        return h1
+
+    def h2(self):
+        now = datetime.now()
+        h2 = str(now.strftime("%H")[1:2])
+        return h2
+
+    def m1(self):
+        now = datetime.now()
+        m1 = str(now.strftime("%M")[0:1])
+        return m1
+
+    def m2(self):
+        now = datetime.now()
+        m2 = str(now.strftime("%M")[1:2])
+        return m2
+
+    #keret
 
     def keret(self, x, width):
         self.turtle.penup()
@@ -53,6 +77,24 @@ class Time:
         self.keret(145, width=120)
         self.keret(265, width=120)
 
+    #base event
+
+    oldh1 = 10
+    oldh2 = 10
+    oldm1 = 10
+    oldm2 = 10
+
+    def baseEvent(self):
+        m2 = self.m2()
+        if m2 != self.oldm2:
+            self.minute2()
+            self.oldm2 = m2
+        self.screen.ontimer(fun=self.baseEvent(), t=100)
+
+
+
+    #writing
+
     def hour1(self):
         self.t1.goto(-145,  -110)
 
@@ -67,18 +109,9 @@ class Time:
 
     def __init__(self):
         n = numbers.Numbers()
-        self.fullkeret()
-        self.hour1()
-        n.number2(-25, -100, 100)
+        self.baseEvent()
         self.screen.mainloop()
 
-
-    def __init__(self):
-        n = numbers.Numbers()
-        self.fullkeret()
-        self.hour2()
-        n.number1(-25, -100, 100)
-        self.screen.mainloop()
 
 
 Time()
