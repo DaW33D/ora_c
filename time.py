@@ -113,6 +113,15 @@ class Time:
         n = numbers.Numbers()
         d = digit.digit()
         d.num8(size=50)
+        d.num1(size=50)
+        d.num2(size=50)
+        d.num3(size=50)
+        d.num4(size=50)
+        d.num5(size=50)
+        d.num6(size=50)
+        d.num7(size=50)
+        d.num9(size=50)
+        d.num0(size=50)
         self.screen.mainloop()
 
 
