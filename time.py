@@ -1,6 +1,7 @@
 from turtle import Turtle
 from turtle import Screen
 import numbers
+import digit
 from datetime import datetime
 import time
 
@@ -89,7 +90,8 @@ class Time:
         if m2 != self.oldm2:
             self.minute2()
             self.oldm2 = m2
-        self.screen.ontimer(fun=self.baseEvent(), t=100)
+        self.screen.ontimer(fun=self.baseEvent(), t=400)
+
 
 
 
@@ -109,7 +111,8 @@ class Time:
 
     def __init__(self):
         n = numbers.Numbers()
-        self.baseEvent()
+        d = digit.digit()
+        d.num8(size=50)
         self.screen.mainloop()
 
 

@@ -8,48 +8,48 @@ class digit:
     screen.setup(width=600, height=400)
     screen.bgcolor("black")
 
-    def egyseg(self):
+    def egyseg(self, size):
         self.turtle.fillcolor("#1aff1a")
         self.turtle.begin_fill()
         self.turtle.right(45)
-        self.turtle.backward(20)
+        self.turtle.backward(size / 5)
         self.turtle.left(45)
-        self.turtle.backward(80)
+        self.turtle.backward(size / 100 * 80)
         self.turtle.left(45)
-        self.turtle.backward(20)
+        self.turtle.backward(size / 5)
         self.turtle.right(90)
-        self.turtle.forward(20)
+        self.turtle.forward(size / 5)
         self.turtle.left(45)
-        self.turtle.forward(80)
+        self.turtle.forward(size / 100 * 80)
         self.turtle.left(45)
-        self.turtle.forward(20)
+        self.turtle.forward(size / 5)
         self.turtle.right(45)
         self.turtle.end_fill()
 
-    def num8(self):
-        self.egyseg()
+    def num8(self, size):
+        self.egyseg(size=size)
         self.turtle.left(90)
-        self.turtle.forward(108)
-        self.egyseg()
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
         self.turtle.left(90)
-        self.turtle.forward(108)
-        self.egyseg()
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
         self.turtle.penup()
-        self.turtle.backward(108)
+        self.turtle.backward(size / 100 * 108)
         self.turtle.right(90)
         self.turtle.pendown()
-        self.turtle.forward(108)
-        self.egyseg()
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
         self.turtle.left(90)
-        self.turtle.forward(108)
-        self.egyseg()
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
         self.turtle.left(90)
-        self.turtle.forward(108)
-        self.egyseg()
-        self.turtle.forward(108)
-        self.egyseg()
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
         self.turtle.right(90)
-        self.turtle.forward(150)
+        self.turtle.forward(size / 100 * 108)
 
     def num1(self):
         self.turtle.left(90)
@@ -220,7 +220,8 @@ class digit:
 
 
 
-    def __init__(self):
+
+    """def __init__(self):
         self.num8()
         self.num1()
         self.num2()
@@ -232,7 +233,7 @@ class digit:
         self.num9()
         self.num0()
 
-        self.screen.mainloop()
+        self.screen.mainloop()"""
 
 
 
