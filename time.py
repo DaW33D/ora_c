@@ -1,5 +1,6 @@
 from turtle import Turtle
 from turtle import Screen
+import digit
 import numbers
 import digit
 from datetime import datetime
@@ -109,6 +110,15 @@ class Time:
     def minute2(self):
         self.t4.goto(256, -110)
 
+
+    def __init__(self):
+        d = digit.digit()
+        self.fullkeret()
+        self.hour2()
+        d.num1()
+        d.num2()
+        d.num8()
+        d.pont()
     def __init__(self):
         n = numbers.Numbers()
         d = digit.digit()
@@ -123,6 +133,8 @@ class Time:
         d.num9(size=50)
         d.num0(size=50)
         self.screen.mainloop()
+
+
 
 
 

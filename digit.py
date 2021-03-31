@@ -26,30 +26,24 @@ class digit:
         self.turtle.right(45)
         self.turtle.end_fill()
 
-    def num8(self, size):
-        self.egyseg(size=size)
-        self.turtle.left(90)
-        self.turtle.forward(size / 100 * 108)
-        self.egyseg(size=size)
-        self.turtle.left(90)
-        self.turtle.forward(size / 100 * 108)
-        self.egyseg(size=size)
+    def num0(self, size):
         self.turtle.penup()
-        self.turtle.backward(size / 100 * 108)
         self.turtle.right(90)
+        self.turtle.forward(-120)
         self.turtle.pendown()
-        self.turtle.forward(size / 100 * 108)
+        self.turtle.right(90)
         self.egyseg(size=size)
-        self.turtle.left(90)
-        self.turtle.forward(size / 100 * 108)
-        self.egyseg(size=size)
-        self.turtle.left(90)
-        self.turtle.forward(size / 100 * 108)
-        self.egyseg(size=size)
+        self.turtle.right(90)
+        for i in range(2):
+            self.turtle.forward(size / 100 * 108)
+            self.egyseg(size=size)
+        self.turtle.right(90)
         self.turtle.forward(size / 100 * 108)
         self.egyseg(size=size)
         self.turtle.right(90)
-        self.turtle.forward(size / 100 * 108)
+        for i in range(2):
+            self.turtle.forward(size / 100 * 108)
+            self.egyseg(size=size)
 
     def num1(self, size):
         self.turtle.left(90)
@@ -180,6 +174,31 @@ class digit:
             self.turtle.forward(size / 100 * 108)
             self.egyseg(size=size)
 
+    def num8(self, size):
+        self.egyseg(size=size)
+        self.turtle.left(90)
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.left(90)
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.penup()
+        self.turtle.backward(size / 100 * 108)
+        self.turtle.right(90)
+        self.turtle.pendown()
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.left(90)
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.left(90)
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.forward(size / 100 * 108)
+        self.egyseg(size=size)
+        self.turtle.right(90)
+        self.turtle.forward(size / 100 * 108)
+
     def num9(self, size):
         self.turtle.penup()
         self.turtle.right(90)
@@ -199,24 +218,8 @@ class digit:
         self.turtle.forward(size / 100 * 108)
         self.egyseg(size=size)
 
-    def num0(self, size):
-        self.turtle.penup()
-        self.turtle.right(90)
-        self.turtle.forward(-120)
-        self.turtle.pendown()
-        self.turtle.right(90)
-        self.egyseg(size=size)
-        self.turtle.right(90)
-        for i in range(2):
-            self.turtle.forward(size / 100 * 108)
-            self.egyseg(size=size)
-        self.turtle.right(90)
-        self.turtle.forward(size / 100 * 108)
-        self.egyseg(size=size)
-        self.turtle.right(90)
-        for i in range(2):
-            self.turtle.forward(size / 100 * 108)
-            self.egyseg(size=size)
+    def pont(self):
+        self.turtle.circle(10)
 
 
 
