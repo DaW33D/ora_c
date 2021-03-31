@@ -141,8 +141,8 @@ class digit:
 
     def num6(self, size):
         self.turtle.penup()
-        self.turtle.right(180)
-        self.turtle.forward(250)
+        self.turtle.left(180)
+        self.turtle.forward(100)
         self.turtle.left(90)
         self.turtle.pendown()
         self.egyseg(size=size)
