@@ -132,6 +132,7 @@ class Time:
         d.num7(size=50)
         d.num9(size=50)
         d.num0(size=50)
+        d.pont(size=50)
         self.screen.mainloop()
 
 
