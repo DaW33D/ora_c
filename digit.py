@@ -219,12 +219,16 @@ class digit:
         self.egyseg(size=size)
 
     def pont(self):
+        self.turtle.penup
         self.turtle.left(90)
         self.turtle.forward(20)
         self.turtle.right(180)
+        self.turtle.pendown()
         self.egyseg()
+        self.turtle.penup
         self.turtle.forward(40)
         self.turtle.right(180)
+        self.turtle.pendown()
         self.egyseg()
 
 
