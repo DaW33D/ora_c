@@ -1,5 +1,6 @@
 from turtle import Turtle
 from turtle import Screen
+from j_clock import *
 import digit
 import numbers
 import digit
@@ -14,6 +15,7 @@ class Time:
     turtle.speed(10)
     screen = Screen()
     screen.setup(width=600, height=400)
+    clk = Clock(screen)
 
     # other turtles
 
@@ -93,9 +95,6 @@ class Time:
             self.oldm2 = m2
         self.screen.ontimer(fun=self.baseEvent(), t=400)
 
-
-
-
     #writing
 
     def hour1(self):
@@ -110,29 +109,27 @@ class Time:
     def minute2(self):
         self.t4.goto(256, -110)
 
+    def refreshsecond(self):
+        print(self.clk.sec())
 
     def __init__(self):
-        d = digit.digit()
-        self.fullkeret()
-        self.hour2()
-        d.num1()
-        d.num2()
-        d.num8()
-        d.pont()
-    def __init__(self):
+
         n = numbers.Numbers()
         d = digit.digit()
-        d.num8(size=50)
-        d.num1(size=50)
-        d.num2(size=50)
-        d.num3(size=50)
-        d.num4(size=50)
-        d.num5(size=50)
-        d.num6(size=50)
-        d.num7(size=50)
-        d.num9(size=50)
-        d.num0(size=50)
-        d.pont(size=50)
+        # d.num8(size=50)
+        # d.num1(size=50)
+        # d.num2(size=50)
+        # d.num3(size=50)
+        # d.num4(size=50)
+        # d.num5(size=50)
+        # d.num6(size=50)
+        # d.num7(size=50)
+        # d.num9(size=50)
+        # d.num0(size=50)
+        # d.pont(size=50)
+
+        self.clk.setOnSecondChangeListener(self.refreshsecond)
+
         self.screen.mainloop()
 
 
