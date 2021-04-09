@@ -1,6 +1,6 @@
 from turtle import Turtle
 from turtle import Screen
-from j_clock import *
+"""from j_clock import *"""
 import digit
 import numbers
 import digit
@@ -15,7 +15,9 @@ class Time:
     turtle.speed(10)
     screen = Screen()
     screen.setup(width=600, height=400)
-    clk = Clock(screen)
+    n = numbers.Numbers()
+    d = digit.digit()
+    """clk = Clock(screen)"""
 
     # other turtles
 
@@ -81,7 +83,7 @@ class Time:
         self.keret(145, width=120)
         self.keret(265, width=120)
 
-    #base event
+    #base event + idozito
 
     oldh1 = 10
     oldh2 = 10
@@ -91,9 +93,14 @@ class Time:
     def baseEvent(self):
         m2 = self.m2()
         if m2 != self.oldm2:
-            self.minute2()
+            self.minute2(time=m2)
             self.oldm2 = m2
-        self.screen.ontimer(fun=self.baseEvent(), t=400)
+
+
+    def idozito(self):
+        self.baseEvent()
+        time.sleep(1)
+        self.idozito()
 
     #writing
 
@@ -106,31 +113,17 @@ class Time:
     def minute1(self):
         self.t3.goto(145, -110)
 
-    def minute2(self):
-        self.t4.goto(256, -110)
+    def minute2(self, time):
+        self.n.number1(size=100, x=256, y=-110, turtle=self.t4)
 
-    def refreshsecond(self):
-        print(self.clk.sec())
+
+
+    """def refreshsecond(self):
+        print(self.clk.sec())"""
 
     def __init__(self):
+        self.idozito()
 
-        n = numbers.Numbers()
-        d = digit.digit()
-        # d.num8(size=50)
-        # d.num1(size=50)
-        # d.num2(size=50)
-        # d.num3(size=50)
-        # d.num4(size=50)
-        # d.num5(size=50)
-        # d.num6(size=50)
-        # d.num7(size=50)
-        # d.num9(size=50)
-        # d.num0(size=50)
-        # d.pont(size=50)
-
-        self.clk.setOnSecondChangeListener(self.refreshsecond)
-
-        self.screen.mainloop()
 
 
 

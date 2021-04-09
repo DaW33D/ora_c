@@ -6,7 +6,7 @@ class digit:
     turtle.speed(0)
     screen = Screen()
     screen.setup(width=600, height=400)
-    screen.bgcolor("black")
+
 
     def egyseg(self, size):
         self.turtle.fillcolor("#1aff1a")
