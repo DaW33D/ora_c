@@ -1,6 +1,5 @@
 from turtle import Turtle
 from turtle import Screen
-"""from j_clock import *"""
 import digit
 import numbers
 import digit
@@ -141,7 +140,6 @@ class Time:
             print('hour2 changed')
             self.oldh2 = h2
 
-
     def idozito(self):
         self.baseEvent()
         time.sleep(0.5)
@@ -170,12 +168,6 @@ class Time:
     def __init__(self):
         self.fullkeret()
         self.idozito()
-
-
-
-
-
-
 
 
 Time()
