@@ -57,7 +57,7 @@ class Numbers:
         turtle.forward(size * 0.85)
 
     def number5(self, x, y, size, turtle):
-        """self.goto(x, y, x2=75, y2=110, turtle=turtle)"""
+        self.goto(x, y, x2=75, y2=110, turtle=turtle)
 
         turtle.setheading(270)
         turtle.circle(size / 2, 180)

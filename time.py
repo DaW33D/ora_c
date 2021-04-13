@@ -17,7 +17,6 @@ class Time:
     screen.setup(width=600, height=400)
     n = numbers.Numbers()
     d = digit.digit()
-    """clk = Clock(screen)"""
 
     # other turtles
 
@@ -46,21 +45,25 @@ class Time:
     def h1(self):
         now = datetime.now()
         h1 = str(now.strftime("%H")[0:1])
+        h1 = int(h1)
         return h1
 
     def h2(self):
         now = datetime.now()
         h2 = str(now.strftime("%H")[1:2])
+        h2 = int(h2)
         return h2
 
     def m1(self):
         now = datetime.now()
         m1 = str(now.strftime("%M")[0:1])
+        m1 = int(m1)
         return m1
 
     def m2(self):
         now = datetime.now()
         m2 = str(now.strftime("%M")[1:2])
+        m2 = int(m2)
         return m2
 
     #keret
@@ -83,6 +86,32 @@ class Time:
         self.keret(145, width=120)
         self.keret(265, width=120)
 
+    #numbers
+
+    def selector(self, number, size, turtle, x, y):
+        if number == 0:
+            self.n.number0(size=size, turtle=turtle, x=x, y=y)
+        if number == 1:
+            self.n.number1(size=size, turtle=turtle, x=x, y=y)
+        if number == 2:
+            self.n.number2(size=size, turtle=turtle, x=x, y=y)
+        if number == 3:
+            self.n.number3(size=size, turtle=turtle, x=x, y=y)
+        if number == 4:
+            self.n.number4(size=size, turtle=turtle, x=x, y=y)
+        if number == 5:
+            self.n.number5(size=size, turtle=turtle, x=x, y=y)
+        if number == 6:
+            self.n.number6(size=size, turtle=turtle, x=x, y=y)
+        if number == 7:
+            self.n.number7(size=size, turtle=turtle, x=x, y=y)
+        if number == 8:
+            self.n.number8(size=size, turtle=turtle, x=x, y=y)
+        if number == 9:
+            self.n.number9(size=size, turtle=turtle, x=x, y=y)
+
+
+
     #base event + idozito
 
     oldh1 = 10
@@ -93,36 +122,56 @@ class Time:
     def baseEvent(self):
         m2 = self.m2()
         if m2 != self.oldm2:
-            self.minute2(time=m2)
+            self.minute2(ido=m2)
+            print('minute2 changed')
             self.oldm2 = m2
+        m1 = self.m1()
+        if m1 != self.oldm1:
+            self.minute1(ido=m1)
+            print('minute1 changed')
+            self.oldm1 = m1
+        h1 = self.h1()
+        if h1 != self.oldh1:
+            self.hour1(ido=h1)
+            print('hour1 changed')
+            self.oldh1 = h1
+        h2 = self.h2()
+        if h2 != self.oldh2:
+            self.hour2(ido=h2)
+            print('hour2 changed')
+            self.oldh2 = h2
 
 
     def idozito(self):
         self.baseEvent()
-        time.sleep(1)
+        time.sleep(0.5)
         self.idozito()
 
     #writing
 
-    def hour1(self):
-        self.t1.goto(-145,  -110)
+    def hour1(self, ido):
+        self.t1.clear()
+        self.selector(number=ido, size=100, turtle=self.t1, x=-145, y=-100)
 
-    def hour2(self):
-        self.t2.goto(-25, -110)
+    def hour2(self, ido):
+        self.t2.clear()
+        self.selector(number=ido, size=100, turtle=self.t2, x=-25, y=-100)
 
-    def minute1(self):
-        self.t3.goto(145, -110)
+    def minute1(self, ido):
+        self.t3.clear()
+        self.selector(number=ido, size=100, turtle=self.t3, x=145, y=-100)
 
-    def minute2(self, time):
-        self.n.number1(size=100, x=256, y=-110, turtle=self.t4)
+    def minute2(self, ido):
+        self.t4.clear()
+        self.selector(number=ido, size=100, turtle=self.t4, x=265, y=-100)
 
-
-
-    """def refreshsecond(self):
-        print(self.clk.sec())"""
+    #init
 
     def __init__(self):
+        self.fullkeret()
         self.idozito()
+
+
 
 
 
