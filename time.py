@@ -13,7 +13,7 @@ class Time:
     turtle.hideturtle()
     turtle.speed(10)
     screen = Screen()
-    screen.setup(width=600, height=400)
+    screen.setup(width=1920, height=1080)
     n = numbers.Numbers()
     d = digit.digit()
 
@@ -109,6 +109,28 @@ class Time:
         if number == 9:
             self.n.number9(size=size, turtle=turtle, x=x, y=y)
 
+    def digitSelector(self, number, size, turtle):
+        if number == 0:
+            self.d.num0(size=size, turtle=turtle)
+        if number == 1:
+            self.d.num1(size=size, turtle=turtle)
+        if number == 2:
+            self.d.num2(size=size, turtle=turtle)
+        if number == 3:
+            self.d.num3(size=size, turtle=turtle)
+        if number == 4:
+            self.d.num4(size=size, turtle=turtle)
+        if number == 5:
+            self.d.num5(size=size, turtle=turtle)
+        if number == 6:
+            self.d.num6(size=size, turtle=turtle)
+        if number == 7:
+            self.d.num7(size=size, turtle=turtle)
+        if number == 8:
+            self.d.num8(size=size, turtle=turtle)
+        if number == 9:
+            self.d.num9(size=size, turtle=turtle)
+
 
 
     #base event + idozito
@@ -160,13 +182,15 @@ class Time:
         self.selector(number=ido, size=100, turtle=self.t3, x=145, y=-100)
 
     def minute2(self, ido):
+        self.t4.goto(x=265, y=-100)
         self.t4.clear()
-        self.selector(number=ido, size=100, turtle=self.t4, x=265, y=-100)
+        """self.selector(number=ido, size=100, turtle=self.t4, x=265, y=-100)"""
+        self.digitSelector(number=9, size=100, turtle=self.t4)
 
     #init
 
     def __init__(self):
-        self.fullkeret()
+        """self.fullkeret()"""
         self.idozito()
 
 
