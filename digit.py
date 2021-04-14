@@ -26,6 +26,16 @@ class digit:
         turtle.right(45)
         turtle.end_fill()
 
+    def goto(self, x, y, x2, y2, turtle):
+        turtle.penup()
+        turtle.goto(x, y)
+        turtle.setheading(90)
+        turtle.forward(x2)
+        turtle.setheading(180)
+        turtle.forward(y2)
+        turtle.pendown()
+        turtle.setheading(0)
+
     def num0(self, size, turtle):
         turtle.setheading(180)
         self.egyseg(size=size, turtle=turtle)
