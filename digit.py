@@ -36,7 +36,9 @@ class digit:
         turtle.pendown()
         turtle.setheading(0)
 
-    def num0(self, size, turtle):
+    def num0(self, size, turtle, x, y):
+        self.turtle.goto(x=x, y=y, x2=0, y2=0)
+
         turtle.setheading(180)
         self.egyseg(size=size, turtle=turtle)
         turtle.right(90)
