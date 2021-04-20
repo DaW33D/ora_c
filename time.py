@@ -13,7 +13,7 @@ class Time:
     turtle.hideturtle()
     turtle.speed(10)
     screen = Screen()
-    screen.setup(width=1920, height=1080)
+    screen.setup(width=600, height=400)
     n = numbers.Numbers()
     d = digit.digit()
 
@@ -109,27 +109,27 @@ class Time:
         if number == 9:
             self.n.number9(size=size, turtle=turtle, x=x, y=y)
 
-    def digitSelector(self, number, size, turtle):
+    def digitSelector(self, number, size, turtle, x, y):
         if number == 0:
-            self.d.num0(size=size, turtle=turtle)
+            self.d.num0(size=size, turtle=turtle, x=x, y=y)
         if number == 1:
-            self.d.num1(size=size, turtle=turtle)
+            self.d.num1(size=size, turtle=turtle, x=x, y=y)
         if number == 2:
-            self.d.num2(size=size, turtle=turtle)
+            self.d.num2(size=size, turtle=turtle, x=x, y=y)
         if number == 3:
-            self.d.num3(size=size, turtle=turtle)
+            self.d.num3(size=size, turtle=turtle, x=x, y=y)
         if number == 4:
-            self.d.num4(size=size, turtle=turtle)
+            self.d.num4(size=size, turtle=turtle, x=x, y=y)
         if number == 5:
-            self.d.num5(size=size, turtle=turtle)
+            self.d.num5(size=size, turtle=turtle, x=x, y=y)
         if number == 6:
-            self.d.num6(size=size, turtle=turtle)
+            self.d.num6(size=size, turtle=turtle, x=x, y=y)
         if number == 7:
-            self.d.num7(size=size, turtle=turtle)
+            self.d.num7(size=size, turtle=turtle, x=x, y=y)
         if number == 8:
-            self.d.num8(size=size, turtle=turtle)
+            self.d.num8(size=size, turtle=turtle, x=x, y=y)
         if number == 9:
-            self.d.num9(size=size, turtle=turtle)
+            self.d.num9(size=size, turtle=turtle, x=x, y=y)
 
 
 
@@ -139,6 +139,7 @@ class Time:
     oldh2 = 10
     oldm1 = 10
     oldm2 = 10
+    frequency: int=100
 
     def baseEvent(self):
         m2 = self.m2()
@@ -171,26 +172,28 @@ class Time:
 
     def hour1(self, ido):
         self.t1.clear()
-        self.selector(number=ido, size=100, turtle=self.t1, x=-145, y=-100)
+        """self.selector(number=ido, size=100, turtle=self.t1, x=-145, y=-100)"""
+        self.digitSelector(number=ido, size=80, turtle=self.t1, x=-145, y=-100)
 
     def hour2(self, ido):
         self.t2.clear()
-        self.selector(number=ido, size=100, turtle=self.t2, x=-25, y=-100)
+        """self.selector(number=ido, size=100, turtle=self.t2, x=-25, y=-100)"""
+        self.digitSelector(number=ido, size=80, turtle=self.t2, x=-25, y=-100)
 
     def minute1(self, ido):
         self.t3.clear()
-        self.selector(number=ido, size=100, turtle=self.t3, x=145, y=-100)
+        """self.selector(number=ido, size=100, turtle=self.t3, x=145, y=-100)"""
+        self.digitSelector(number=ido, size=80, turtle=self.t3, x=145, y=-100)
 
     def minute2(self, ido):
-        self.t4.goto(x=265, y=-100)
         self.t4.clear()
         """self.selector(number=ido, size=100, turtle=self.t4, x=265, y=-100)"""
-        self.digitSelector(number=9, size=100, turtle=self.t4)
+        self.digitSelector(number=ido, size=80, turtle=self.t4, x=265, y=-100)
 
     #init
 
     def __init__(self):
-        """self.fullkeret()"""
+        self.fullkeret()
         self.idozito()
 
 

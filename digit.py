@@ -37,7 +37,7 @@ class digit:
         turtle.setheading(0)
 
     def num0(self, size, turtle, x, y):
-        self.turtle.goto(x=x, y=y, x2=0, y2=0)
+        self.goto(x=x, y=y, x2=size / 4, y2=size * 1.30, turtle=turtle)
 
         turtle.setheading(180)
         self.egyseg(size=size, turtle=turtle)
@@ -53,13 +53,17 @@ class digit:
             turtle.forward(size / 100 * 108)
             self.egyseg(size=size, turtle=turtle)
 
-    def num1(self, size, turtle):
+    def num1(self, size, turtle, y, x):
+        self.goto(x=x, y=y, x2=size / 100 * 131.25, y2=size / 100 * 21.25, turtle=turtle)
+
         turtle.setheading(90)
-        for i in range(2):
-            self.egyseg(size=size, turtle=turtle)
-            turtle.forward(size / 100 * 108)
+        self.egyseg(size=size, turtle=turtle)
+        turtle.forward(size / 100 * 108)
+        self.egyseg(size=size, turtle=turtle)
 
-    def num2(self, size, turtle):
+    def num2(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 4, y2=size / 100 * 21.25, turtle=turtle)
+
         turtle.setheading(180)
         turtle.forward(size / 100 * 108)
         self.egyseg(size=size, turtle=turtle)
@@ -76,8 +80,10 @@ class digit:
         turtle.forward(size / 100 * 108)
         self.egyseg(size=size, turtle=turtle)
 
-    def num3(self, size, turtle):
-        turtle.setheading(180)
+    def num3(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 100 * 241.25, y2=size / 100 * 21.25, turtle=turtle)
+
+        turtle.setheading(0)
         self.egyseg(size=size, turtle=turtle)
         turtle.right(90)
         turtle.forward(size / 100 * 108)
@@ -94,7 +100,9 @@ class digit:
         turtle.right(270)
         self.egyseg(size=size, turtle=turtle)
 
-    def num4(self, size, turtle):
+    def num4(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 100 * 131.25, y2=size / 100 * 21.25, turtle=turtle)
+
         turtle.setheading(0)
         self.egyseg(size=size, turtle=turtle)
         turtle.left(90)
@@ -115,7 +123,9 @@ class digit:
         turtle.pendown()
         self.egyseg(size=size, turtle=turtle)
 
-    def num5(self, size, turtle):
+    def num5(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 100 * 241.25, y2=size / 100 * 128.75, turtle=turtle)
+
         turtle.setheading(90)
         self.egyseg(size=size, turtle=turtle)
         turtle.right(90)
@@ -137,7 +147,9 @@ class digit:
         turtle.forward(size / 100 * 108)
         self.egyseg(size=size, turtle=turtle)
 
-    def num6(self, size, turtle):
+    def num6(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 100 * 241.25, y2=size / 100 * 128.75, turtle=turtle)
+
         turtle.setheading(90)
         self.egyseg(size=size, turtle=turtle)
         turtle.right(90)
@@ -157,7 +169,9 @@ class digit:
             turtle.forward(size / 100 * 108)
             self.egyseg(size=size, turtle=turtle)
 
-    def num7(self, size, turtle):
+    def num7(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 100 * 241.25, y2=size / 100 * 21.25, turtle=turtle)
+
         turtle.setheading(0)
         self.egyseg(size=size, turtle=turtle)
         turtle.right(90)
@@ -165,7 +179,9 @@ class digit:
             turtle.forward(size / 100 * 108)
             self.egyseg(size=size, turtle=turtle)
 
-    def num8(self, size, turtle):
+    def num8(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 4, y2=size / 100 * 21.25, turtle=turtle)
+
         self.egyseg(size=size, turtle=turtle)
         turtle.left(90)
         turtle.forward(size / 100 * 108)
@@ -190,7 +206,9 @@ class digit:
 
 
 
-    def num9(self, size, turtle):
+    def num9(self, size, turtle, x, y):
+        self.goto(x=x, y=y, x2=size / 100 * 241.25, y2=size / 100 * 128.75, turtle=turtle)
+
         turtle.setheading(180)
         self.egyseg(size=size, turtle=turtle)
         for i in range(3):
