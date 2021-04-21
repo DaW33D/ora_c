@@ -224,18 +224,18 @@ class digit:
         turtle.forward(size / 100 * 108)
         self.egyseg(size=size, turtle=turtle)
 
-    def pont(self):
-        self.turtle.penup
-        self.turtle.left(90)
-        self.turtle.forward(20)
-        self.turtle.right(180)
-        self.turtle.pendown()
-        self.egyseg()
-        self.turtle.penup
-        self.turtle.forward(40)
-        self.turtle.right(180)
-        self.turtle.pendown()
-        self.egyseg()
+    def pont(self, turtle, size):
+        turtle.penup
+        turtle.left(90)
+        turtle.forward(20)
+        turtle.right(180)
+        turtle.pendown()
+        self.egyseg(size=size,turtle=turtle)
+        turtle.penup()
+        turtle.forward(40)
+        turtle.right(180)
+        turtle.pendown()
+        self.egyseg(size=size,turtle=turtle)
 
 
 

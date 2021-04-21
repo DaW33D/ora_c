@@ -10,10 +10,12 @@ import time
 class Time:
     # screen and turtle
     turtle = Turtle()
+    turtle.fillcolor('gray')
     turtle.hideturtle()
     turtle.speed(10)
     screen = Screen()
     screen.setup(width=600, height=400)
+    screen.bgcolor('black')
     n = numbers.Numbers()
     d = digit.digit()
 
@@ -38,6 +40,11 @@ class Time:
     t4.hideturtle()
     t4.speed(0)
     t4.fillcolor('white')
+
+    t5 = Turtle()
+    t5.hideturtle()
+    t5.speed(0)
+    t5.fillcolor('white')
 
     #now
 
@@ -69,6 +76,7 @@ class Time:
 
     def keret(self, x, width):
         self.turtle.penup()
+        self.turtle.begin_fill()
         self.turtle.setheading(90)
         self.turtle.goto(x, -100)
         self.turtle.pendown()
@@ -77,6 +85,7 @@ class Time:
             self.turtle.left(90)
             self.turtle.forward(width)
             self.turtle.left(90)
+        self.turtle.end_fill()
 
     def fullkeret(self):
         self.keret(-145, width=120)
@@ -194,7 +203,10 @@ class Time:
 
     def __init__(self):
         self.fullkeret()
-        self.idozito()
+        #self.idozito()
+        self.d.pont(turtle=self.t5, size=35)
+
+        self.screen.mainloop()
 
 
 Time()
