@@ -14,7 +14,7 @@ class Time:
     turtle.hideturtle()
     turtle.speed(10)
     screen = Screen()
-    screen.setup(width=600, height=400)
+    screen.setup(width=2560, height=1080)
     screen.bgcolor('black')
     n = numbers.Numbers()
     d = digit.digit()
@@ -71,6 +71,12 @@ class Time:
         m2 = str(now.strftime("%M")[1:2])
         m2 = int(m2)
         return m2
+
+    def second(self):
+        now = datetime.now()
+        second = str(now.strftime("%S")[1:2])
+        second = int(second)
+        return second
 
     #keret
 
@@ -148,7 +154,7 @@ class Time:
     oldh2 = 10
     oldm1 = 10
     oldm2 = 10
-    frequency: int=100
+    oldsec = 10
 
     def baseEvent(self):
         m2 = self.m2()
@@ -172,8 +178,18 @@ class Time:
             print('hour2 changed')
             self.oldh2 = h2
 
+    def sec(self):
+        sec = self.second()
+        if sec != self.oldsec:
+            self.drawsec()
+            self.oldsec = sec
+
+
+
     def idozito(self):
         self.baseEvent()
+        self.sec()
+        print(self.c)
         time.sleep(0.5)
         self.idozito()
 
@@ -199,14 +215,24 @@ class Time:
         """self.selector(number=ido, size=100, turtle=self.t4, x=265, y=-100)"""
         self.digitSelector(number=ido, size=80, turtle=self.t4, x=265, y=-100)
 
+    c = 1
+
+    def drawsec(self):
+        b: int = self.c
+        if b == 1:
+            self.d.pont(turtle=self.t5, x=25, y=-100)
+            b = b - 1
+        else:
+            self.t5.clear()
+            b = b + 1
+
+
     #init
 
     def __init__(self):
         self.fullkeret()
-        #self.idozito()
-        self.d.pont(turtle=self.t5, size=35)
+        self.idozito()
 
-        self.screen.mainloop()
 
 
 Time()
