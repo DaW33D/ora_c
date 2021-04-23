@@ -13,7 +13,7 @@ class Time:
     turtle.speed(0)
     turtle._delay(0)
     screen = Screen()
-    screen.setup(width=2560, height=1080)
+    screen.setup(width=600, height=400)
     screen.bgcolor('black')
     n = numbers.Numbers()
     d = digit.digit()
