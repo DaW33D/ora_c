@@ -76,20 +76,6 @@ class Time:
         m2 = int(m2)
         return m2
 
-    def second(self):
-        now = datetime.now()
-        second = str(now.strftime("%S")[1:2])
-        second = int(second)
-        if second != self.oldsec:
-            if self.valtozo == 1:
-                self.d.pont(turtle=self.t5, x=25, y=-100)
-                self.valtozo = self.valtozo - 1
-            else:
-                self.t5.clear()
-                self.valtozo = self.valtozo + 1
-            self.oldsec = second
-        self.screen.ontimer(fun=self.second, t=100)
-
     # keret
 
     def keret(self, x, width):
@@ -196,7 +182,6 @@ class Time:
         now = datetime.now()
         second = str(now.strftime("%S")[1:2])
         second = int(second)
-        print(second)
         if second != self.oldsec:
             if self.valtozo == 1:
                 self.d.pont(turtle=self.t5, x=25, y=-100)
