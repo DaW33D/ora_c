@@ -1,12 +1,8 @@
 from turtle import Turtle
 from turtle import Screen
-import digit
 import numbers
 import digit
 from datetime import datetime
-import time
-import threading
-
 
 
 class Time:
@@ -54,7 +50,7 @@ class Time:
     t5._delay(0)
     t5.fillcolor('white')
 
-    #now
+    # now
 
     def h1(self):
         now = datetime.now()
@@ -84,9 +80,18 @@ class Time:
         now = datetime.now()
         second = str(now.strftime("%S")[1:2])
         second = int(second)
-        return second
+        print(second)
+        if second != self.oldsec:
+            if self.valtozo == 1:
+                self.d.pont(turtle=self.t5, x=25, y=-100)
+                self.valtozo = self.valtozo - 1
+            else:
+                self.t5.clear()
+                self.valtozo = self.valtozo + 1
+            self.oldsec = second
+        self.screen.ontimer(fun=self.second, t=100)
 
-    #keret
+    # keret
 
     def keret(self, x, width):
         self.turtle.penup()
@@ -108,7 +113,7 @@ class Time:
         self.keret(145, width=120)
         self.keret(265, width=120)
 
-    #numbers selector
+    # numbers selector
 
     def selector(self, number, size, turtle, x, y):
         if number == 0:
@@ -132,7 +137,7 @@ class Time:
         if number == 9:
             self.n.number9(size=size, turtle=turtle, x=x, y=y)
 
-    def digitSelector(self, number, size, turtle, x, y):
+    def digit_selector(self, number, size, turtle, x, y):
         if number == 0:
             self.d.num0(size=size, turtle=turtle, x=x, y=y)
         if number == 1:
@@ -154,17 +159,16 @@ class Time:
         if number == 9:
             self.d.num9(size=size, turtle=turtle, x=x, y=y)
 
-
-
-    #base event + idozito
+    # base event + variables
 
     oldh1 = 10
     oldh2 = 10
     oldm1 = 10
     oldm2 = 10
     oldsec = 10
+    valtozo = 1
 
-    def baseEvent(self):
+    def base_event(self):
         m2 = self.m2()
         if m2 != self.oldm2:
             self.minute2(ido=m2)
@@ -185,52 +189,54 @@ class Time:
             self.hour2(ido=h2)
             print('hour2 changed')
             self.oldh2 = h2
-        self.screen.ontimer(fun=self.baseEvent, t=100)
+        self.screen.ontimer(fun=self.base_event, t=100)
 
-    def idozito(self):
-        self.baseEvent()
-        time.sleep(1)
-        self.idozito()
+    # second
 
-    #writing
+    def second(self):
+        now = datetime.now()
+        second = str(now.strftime("%S")[1:2])
+        second = int(second)
+        print(second)
+        if second != self.oldsec:
+            if self.valtozo == 1:
+                self.d.pont(turtle=self.t5, x=25, y=-100)
+                self.valtozo = self.valtozo - 1
+            else:
+                self.t5.clear()
+                self.valtozo = self.valtozo + 1
+            self.oldsec = second
+        self.screen.ontimer(fun=self.second, t=100)
+
+    # writing
 
     def hour1(self, ido):
         self.t1.clear()
         """self.selector(number=ido, size=100, turtle=self.t1, x=-145, y=-100)"""
-        self.digitSelector(number=ido, size=80, turtle=self.t1, x=-145, y=-100)
+        self.digit_selector(number=ido, size=80, turtle=self.t1, x=-145, y=-100)
 
     def hour2(self, ido):
         self.t2.clear()
         """self.selector(number=ido, size=100, turtle=self.t2, x=-25, y=-100)"""
-        self.digitSelector(number=ido, size=80, turtle=self.t2, x=-25, y=-100)
+        self.digit_selector(number=ido, size=80, turtle=self.t2, x=-25, y=-100)
 
     def minute1(self, ido):
         self.t3.clear()
         """self.selector(number=ido, size=100, turtle=self.t3, x=145, y=-100)"""
-        self.digitSelector(number=ido, size=80, turtle=self.t3, x=145, y=-100)
+        self.digit_selector(number=ido, size=80, turtle=self.t3, x=145, y=-100)
 
     def minute2(self, ido):
         self.t4.clear()
         """self.selector(number=ido, size=100, turtle=self.t4, x=265, y=-100)"""
-        self.digitSelector(number=ido, size=80, turtle=self.t4, x=265, y=-100)
+        self.digit_selector(number=ido, size=80, turtle=self.t4, x=265, y=-100)
 
-    def drawsec(self):
-        self.d.pont(turtle=self.t5, x=25, y=-100)
-        time.sleep(1)
-        self.t5.clear()
-        self.screen.ontimer(fun=self.drawsec, t=1000)
-
-
-
-    #init
+    # init
 
     def __init__(self):
         self.fullkeret()
-        self.baseEvent()
-        self.drawsec()
-
+        self.base_event()
+        self.second()
         self.screen.mainloop()
-
 
 
 Time()
