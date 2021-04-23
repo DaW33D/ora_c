@@ -80,7 +80,6 @@ class Time:
         now = datetime.now()
         second = str(now.strftime("%S")[1:2])
         second = int(second)
-        print(second)
         if second != self.oldsec:
             if self.valtozo == 1:
                 self.d.pont(turtle=self.t5, x=25, y=-100)
