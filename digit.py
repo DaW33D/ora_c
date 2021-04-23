@@ -225,11 +225,14 @@ class digit:
         self.egyseg(size=size, turtle=turtle)
 
     def pont(self, turtle, x, y):
-        self.goto(turtle=turtle, x=x, y=y, x2=50, y2=30)
+        self.goto(turtle=turtle, x=x, y=y, x2=60, y2=25)
 
+        turtle.pencolor("#1aff1a")
         turtle.setheading(90)
         turtle.dot(size=20)
-        turtle.forward(50)
+        turtle.penup()
+        turtle.forward(80)
+        turtle.pendown()
         turtle.dot(size=20)
 
 
